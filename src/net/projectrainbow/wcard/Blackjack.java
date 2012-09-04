@@ -1,39 +1,3 @@
-/**
- * Songs
- * 
- * Bryan Adams - Summer of 69
- * ZZ Top - Legs
- * Led Zeppelin - Rock n Roll
- * The Rolling Stones - Monkey Man
- * Queen - Crazy Little Thing Called Love
- * Autograph - Turn Up The Radio
- * Boston - Foreplay / Long Time
- * Blue Oyster Cult - Burnin' For You
- * Steppenwolf - Born to be Wild
- * Night Ranger - Don't tell me you love me
- * 
- * Jul 28
- *  - 10:00 PM BONE
- * 
- * Jul 29
- *  - 10:00 AM KFOX (???)
- *  - 8:54 PM BONE
- *  - 9:16 PM KFOX (LZ)
- *  
- *  Jul 30
- *  - 4:12 PM KFOX (saame as F)
- *  - 4:21 PM BONE
- *  - 4:56 PM BONE
- *  
- *  August 5
- *  - 12:12 PM BONE
- *  
- *  August 6
- *  - 9:42 PM BONE
- *  - 10:00 PM BONE
- *
- */
-
 package net.projectrainbow.wcard;
 
 import net.projectrainbow.util.Utils;
@@ -44,7 +8,7 @@ import net.projectrainbow.util.Utils;
  *
  */
 
-public class Blackjack {
+public final class Blackjack {
 	
 	/**
 	 * The default amount of cards.
@@ -54,7 +18,7 @@ public class Blackjack {
 	/**
 	 * The maximum cards a player is allowed to have.
 	 */
-	public static final int MAX_CARDS = 8;
+	private static final int MAX_CARDS = 8;
 	
 	/**
 	 * The maximum score a player can have.

@@ -18,16 +18,34 @@ public class Deck {
 	private List<Card> cards = new ArrayList<Card>();
 	
 	/**
+	 * The constructor which automatically
+	 * initializes (but does not shuffle)
+	 * the deck.
+	 */
+	public Deck() {
+		initialize();
+	}
+	
+	/**
 	 * Initializes a deck.
 	 */
-	public void initialize() {
+	private void initialize() {
 		cards.clear();
 		for (int i = 1; i <= Card.RANGE; i++) {
 			for (Suit s : Card.Suit.values()) {
 				cards.add(new Card(s, i));
 			}
 		}
-		//Collections.shuffle(cards);
+	}
+	
+	/**
+	 * Resets the deck to its initial state.
+	 * 
+	 * Basically a public method to the
+	 * above method initialize().
+	 */
+	public void reset() {
+		initialize();
 	}
 	
 	/**
@@ -42,21 +60,24 @@ public class Deck {
 	 * Adds a card.
 	 * @param c
 	 */
-	public void addCard(Card c) {
-		cards.add(c);
+	public boolean addCard(Card c) {
+		return cards.add(c);
 	}
 	
 	/**
 	 * Removes a card.
 	 * @param c
+	 * @return
 	 */
-	public void removeCard(Card c) {
-		cards.remove(c);
+	public boolean removeCard(Card c) {
+		return cards.remove(c);
 	}
 	
 	/**
 	 * Pops (removes) a card
 	 * and then removes it from the deck.
+	 * 
+	 * Returns null if it is empty.
 	 * @return
 	 */
 	public Card popCard() {

@@ -2,10 +2,20 @@ package net.projectrainbow.util;
 
 /**
  * Utils.java
+ * 
+ * Contains an input method.
+ * 
  */
 
 public class Utils
 {
+	/**
+	 * Returns a <code>String</code> of console input.
+	 * Returns a blank String during an Exception.
+	 * 
+	 * @param prompt
+	 * @return
+	 */
 	public static String input(String prompt)
 	{
 		String inputLine = "";

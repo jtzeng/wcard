@@ -23,15 +23,15 @@ public class Hand {
 	
 	/**
 	 * Adds a card.
+	 * Returns false if it is not possible.
 	 * @param c
 	 * @return
 	 */
 	public boolean addCard(Card c) {
 		if (c == null)
-			throw new NullPointerException("Card is null!");
+			return false;
 		if (cards.size() < maximumSize) {
-			cards.add(c);
-			return true;
+			return cards.add(c);
 		}
 		return false;
 	}
@@ -39,9 +39,10 @@ public class Hand {
 	/**
 	 * Removes a card.
 	 * @param c
+	 * @return
 	 */
-	public void removeCard(Card c) {
-		cards.remove(c);
+	public boolean removeCard(Card c) {
+		return cards.remove(c);
 	}
 	
 	/**
@@ -83,7 +84,7 @@ public class Hand {
 	
 	@Override
 	public String toString() {
-		String output = ""; //HAND:\n";
+		String output = "";
 		for (Card c : cards) {
 			output = output + c + " ";
 		}

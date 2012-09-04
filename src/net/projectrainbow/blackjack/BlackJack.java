@@ -44,7 +44,6 @@ public final class BlackJack {
 		 */
 		if (deck == null) {
 			deck = new Deck();
-			deck.initialize();
 		}
 		//System.out.println("Deck Count: " + deck.countCards());
 		deck.shuffle();
@@ -135,11 +134,11 @@ public final class BlackJack {
 	private int getPlayerPoints(Hand hand) {
 		int score = 0;
 		for (Card card : hand.getCards()) {
-			if (card.getNumber() == 1) {
+			if (card.getNumber() == Card.ACE_NUM) {
 				score += 11;
 				continue;
 			}
-			if (card.getNumber() >= 11 && card.getNumber() <= 13) {
+			if (card.getNumber() >= Card.JACK_NUM && card.getNumber() <= Card.KING_NUM) {
 				score += 10;
 				continue;
 			}

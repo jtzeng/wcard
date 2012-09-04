@@ -11,6 +11,22 @@ public class Card {
 	private final Suit suit;
 	private final int number;
 	
+	/**
+	 * Card unicode code constants.
+	 */
+	private static final String UNICODE_HEARTS = "\u2661";
+	private static final String UNICODE_DIAMONDS = "\u2662";
+	private static final String UNICODE_CLUBS = "\u2663";
+	private static final String UNICODE_SPADES = "\u2660";
+	
+	/**
+	 * Face card number constants.
+	 */
+	public static final int ACE_NUM = 1;
+	public static final int JACK_NUM = 11;
+	public static final int QUEEN_NUM = 12;
+	public static final int KING_NUM = 13;
+	
 	public static final int RANGE = 13;
 	
 	/**
@@ -30,9 +46,9 @@ public class Card {
 	 */
 	public Card(Suit suit, int number) {
 		if (suit == null)
-			throw new java.lang.NullPointerException("Card suit has a null value!");
-		if (number == 0 || number > RANGE)
-			throw new java.lang.IllegalArgumentException("Card number (" + number + ") is out of range!");
+			throw new IllegalArgumentException("Card suit has a null value!");
+		if (number < 1 || number > RANGE)
+			throw new IllegalArgumentException("Card number (" + number + ") is out of range!");
 		this.suit = suit;
 		this.number = number;
 	}
@@ -59,7 +75,7 @@ public class Card {
 	 * @return
 	 */
 	public boolean isFaceCard() {
-		return (number >= 11 && number <= 13) || (number == 1);
+		return (number >= JACK_NUM && number <= KING_NUM) || (number == ACE_NUM);
 	}
 	
 	/**
@@ -68,13 +84,13 @@ public class Card {
 	 */
 	public String getFaceName() {
 		switch (number) {
-		case 11:
+		case JACK_NUM:
 			return "J";
-		case 12:
+		case QUEEN_NUM:
 			return "Q";
-		case 13:
+		case KING_NUM:
 			return "K";
-		case 1:
+		case ACE_NUM:
 			return "A";
 		default:
 			return "NOT_A_FACE_CARD";
@@ -90,13 +106,13 @@ public class Card {
 	public String getSuitName() {
 		switch (suit) {
 		case HEARTS:
-			return "\u2661";
+			return UNICODE_HEARTS;
 		case DIAMONDS:
-			return "\u2662";
+			return UNICODE_DIAMONDS;
 		case CLUBS:
-			return "\u2663";
+			return UNICODE_CLUBS;
 		case SPADES:
-			return "\u2660";
+			return UNICODE_SPADES;
 		default:
 			return suit.name();
 		}

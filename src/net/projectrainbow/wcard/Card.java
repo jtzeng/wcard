@@ -29,12 +29,10 @@ public class Card {
 	 * @param number
 	 */
 	public Card(Suit suit, int number) {
-		if (suit == null) {
+		if (suit == null)
 			throw new java.lang.NullPointerException("Card suit has a null value!");
-		}
-		if (number == 0 || number > RANGE) {
+		if (number == 0 || number > RANGE)
 			throw new java.lang.IllegalArgumentException("Card number (" + number + ") is out of range!");
-		}
 		this.suit = suit;
 		this.number = number;
 	}

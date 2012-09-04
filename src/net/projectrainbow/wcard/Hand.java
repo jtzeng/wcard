@@ -27,9 +27,8 @@ public class Hand {
 	 * @return
 	 */
 	public boolean addCard(Card c) {
-		if (c == null) {
+		if (c == null)
 			throw new NullPointerException("Card is null!");
-		}
 		if (cards.size() < maximumSize) {
 			cards.add(c);
 			return true;

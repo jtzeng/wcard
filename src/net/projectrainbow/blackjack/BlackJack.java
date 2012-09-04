@@ -1,6 +1,9 @@
-package net.projectrainbow.wcard;
+package net.projectrainbow.blackjack;
 
 import net.projectrainbow.util.Utils;
+import net.projectrainbow.wcard.Card;
+import net.projectrainbow.wcard.Deck;
+import net.projectrainbow.wcard.Hand;
 
 /**
  * Blackjack.java
@@ -8,7 +11,7 @@ import net.projectrainbow.util.Utils;
  *
  */
 
-public final class Blackjack {
+public final class BlackJack {
 	
 	/**
 	 * The default amount of cards.
@@ -28,28 +31,14 @@ public final class Blackjack {
 	private static final int BLACK_JACK = 21;
 	
 	private Deck deck;
-	
-	private static Blackjack blackJack;
-	
+
 	private static int playerWins = 0;
 	private static int enemyWins = 0;
 	
 	/**
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		while (true) {
-			System.out.println("Starting new game of Blackjack..");
-			blackJack = new Blackjack();
-			blackJack.play();
-		}
-	}
-	
-	/**
 	 * Plays the game.
 	 */
-	private void play() {
+	public void play() {
 		/*
 		 * Instantiate a deck and shuffle it.
 		 */
@@ -163,6 +152,11 @@ public final class Blackjack {
 			if (score <= BLACK_JACK) {
 				break;
 			}
+			/*
+			 * If it is an ace (eleven)
+			 * the player will bust,
+			 * count the value as one.
+			 */
 			if (card.getNumber() == 1) {
 				score -= 10;
 			}
@@ -188,10 +182,16 @@ public final class Blackjack {
 		return !(getPlayerPoints(dealer) >= 17);
 	}
 	
+	/**
+	 * Increments the player win count.
+	 */
 	private void playerWin() {
 		playerWins++;
 	}
 	
+	/**
+	 * Increments the enemy win count.
+	 */
 	private void enemyWin() {
 		enemyWins++;
 	}

@@ -101,7 +101,7 @@ public class Deck {
 	public String toString() {
 		String output = "DECK\n";
 		for (Card c : cards) {
-			output = output + c + " ";
+			output += output + c + " ";
 		}
 		return output;
 	}
